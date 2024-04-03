@@ -1,8 +1,7 @@
-package com.example.weatherapp.service;
+package com.example.weatherAPI.service;
 
-import com.example.weatherapp.model.WeatherData;
-import com.example.weatherapp.model.WeatherResponse;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.weatherAPI.model.WeatherData;
+import com.example.weatherAPI.model.WeatherResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
