@@ -2,21 +2,26 @@ package com.example.weatherapp.service;
 
 import com.example.weatherapp.model.WeatherData;
 import com.example.weatherapp.model.WeatherResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
 public class WeatherService {
 
-    private static final String API_KEY = "578e8f43c7976bfb54bc48cecd7fda94";
-    private static final String API_URL = "https://api.openweathermap.org/data/2.5/weather?q=%s&units=metric&appid=%s";
+    @Value("${openweathermap.api.key}")
+    private String apiKey;
+
+    @Value("${openweathermap.api.url}")
+    private String apiUrl;
 
     public WeatherData getWeatherData(String city) {
         RestTemplate restTemplate = new RestTemplate();
-        String apiUrl = String.format(API_URL, city, API_KEY);
+        String formattedApiUrl = String.format(apiUrl, city, apiKey);
 
         try {
-            WeatherResponse response = restTemplate.getForObject(apiUrl, WeatherResponse.class);
+            WeatherResponse response = restTemplate.getForObject(formattedApiUrl, WeatherResponse.class);
             if (response != null && !"404".equals(response.getCod())) {
                 return convertToWeatherData(response);
             }
