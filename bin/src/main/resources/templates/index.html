@@ -1,0 +1,40 @@
+<!-- Add this inside the <div class="container"> in index.html -->
+<div class="weather-box" th:class="${weatherData != null ? 'active' : ''}">
+    <div class="box">
+        <div class="info-weather">
+            <div class="weather">
+                <img th:src="${weatherData != null ? weatherData.image : 'images/cloud.jpg'}"></img>
+                <p class="temperature" th:text="${weatherData != null ? weatherData.temperature : '0°C'}"></p>
+                <p class="description" th:text="${weatherData != null ? weatherData.description : 'Broken clouds'}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="weather-details" th:class="${weatherData != null ? 'active' : ''}">
+    <div class="humidity">
+        <i class="bx bx-water"></i>
+        <div class="text">
+            <div class="info-humidity">
+                <span th:text="${weatherData != null ? weatherData.humidity : '0%'}"></span>
+            </div>
+            <p>Humidity</p>
+        </div>
+    </div>
+    <div class="wind">
+        <i class="bx bx-wind"></i>
+        <div class="text">
+            <div class="info-wind">
+                <span th:text="${weatherData != null ? weatherData.wind : '0Km/h'}"></span>
+            </div>
+            <p>Wind Speed</p>
+        </div>
+    </div>
+</div>
+
+<div class="not-found" th:class="${error != null ? 'active' : ''}">
+    <div class="box">
+        <img src="images/404-new.png">
+        <p th:text="${error != null ? error : 'Location not found !!'}"></p>
+    </div>
+</div>
