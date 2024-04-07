@@ -2,9 +2,12 @@ package com.example.weatherAPI.service;
 
 import com.example.weatherAPI.model.WeatherData;
 import com.example.weatherAPI.model.WeatherResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import java.lang.String;
+
 
 @Service
 public class WeatherService {
@@ -15,6 +18,8 @@ public class WeatherService {
     @Value("${openweathermap.api.url}")
     private String apiUrl;
 
+    @Autowired
+    private RestTemplate restTemplate;
     public WeatherData getWeatherData(String city) {
         RestTemplate restTemplate = new RestTemplate();
         String formattedApiUrl = String.format(apiUrl, city, apiKey);
