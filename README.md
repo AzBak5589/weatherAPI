@@ -29,7 +29,7 @@ This project serves as an API service to provide real-time weather information f
 ### Installation
 
 1. Clone the repository:
-   git clone https://github.com/bipi5589/WeatherAPI.git
+   git clone https://github.com/AzBak5589/WeatherAPI.git
    
 2. Navigate to the project directory:
    cd WeatherAPI
