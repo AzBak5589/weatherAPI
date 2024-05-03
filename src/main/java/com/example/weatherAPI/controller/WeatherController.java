@@ -1,5 +1,7 @@
 package com.example.weatherAPI.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import com.example.weatherAPI.model.WeatherData;
 import com.example.weatherAPI.model.WeatherForecast;
 import com.example.weatherAPI.service.WeatherService;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 @RestController
+@CrossOrigin(origins = "http://localhost:5174")
 public class WeatherController {
 
     @Autowired
